@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IPENTITIES.TripTask>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateTripTask")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskDueDate)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @{
+        if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskDueDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TripTaskId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TripTaskId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TripTaskId })
+                    </td>
+                </tr>
+
+            }
+        }
+    }
+
+
+</table>
